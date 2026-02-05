@@ -87,18 +87,19 @@ const FloatingOverlay: React.FC = () => {
             <h2 className="text-4xl font-bold mb-8">About Me</h2>
             <div className="flex flex-col md:flex-row gap-12 mb-12">
               <div className="w-full md:w-1/3 glass-card overflow-hidden border-emerald-400/20 p-2 flex justify-center">
-                  <img
-                    src="images/cv.PNG"
-                    className="
-                      w-full max-w-[280px]
-                      md:max-w-[360px]
-                      lg:max-w-[420px]
-                      h-auto
-                      object-cover
-                      transition-all duration-700
-                      rounded-xl
-                    "
-                  />
+                 <img
+  src="/images/cv.png"
+  className="
+    w-full max-w-[280px]
+    md:max-w-[360px]
+    lg:max-w-[420px]
+    h-auto
+    object-cover
+    transition-all duration-700
+    rounded-xl
+  "
+/>
+
                 </div>
 
               <div className="w-full md:w-2/3">
