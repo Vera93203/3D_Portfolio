@@ -12,12 +12,12 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onSectionChange 
     { id: 'home', label: 'Home', icon: 'fa-house' },
     { id: 'portfolio', label: 'Works', icon: 'fa-shapes' },
     { id: 'about', label: 'About', icon: 'fa-user' },
-    { id: 'resume', label: 'Resume', icon: 'fa-file-lines' },
-    { id: 'contact', label: 'Contact', icon: 'fa-envelope' }
+    { id: 'resume', label: 'Path', icon: 'fa-file-lines' },
+    { id: 'contact', label: 'Mail', icon: 'fa-envelope' }
   ];
 
   return (
-    <nav className="fixed bottom-10 left-1/2 -translate-x-1/2 z-50">
+    <nav className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50">
       <div className="liquid-glass-btn flex items-center gap-1.5 p-1.5 rounded-[2rem] shadow-2xl">
         {items.map((item) => {
           const isActive = activeSection === item.id;

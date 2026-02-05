@@ -1,17 +1,57 @@
 
 import React, { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Float, Stars, MeshDistortMaterial, Sphere, PerspectiveCamera, Environment, Grid } from '@react-three/drei';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { OrbitControls, Float, Stars, MeshDistortMaterial, Sphere, PerspectiveCamera, Environment, Grid, Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 import { Section } from '../types';
 
-// Define intrinsic elements as components to bypass JSX type errors in some environments
+// Define intrinsic elements as components to bypass JSX type errors
 const Group = 'group' as any;
 const Mesh = 'mesh' as any;
 const OctahedronGeometry = 'octahedronGeometry' as any;
 const AmbientLight = 'ambientLight' as any;
 const PointLight = 'pointLight' as any;
 const Fog = 'fog' as any;
+
+const ReactiveParticles: React.FC<{ color: string }> = ({ color }) => {
+  const pointsRef = useRef<THREE.Points>(null);
+  const { mouse } = useThree();
+  
+  const particleCount = 2000;
+  const positions = useMemo(() => {
+    const pos = new Float32Array(particleCount * 3);
+    for (let i = 0; i < particleCount; i++) {
+      pos[i * 3] = (Math.random() - 0.5) * 30;
+      pos[i * 3 + 1] = (Math.random() - 0.5) * 30;
+      pos[i * 3 + 2] = (Math.random() - 0.5) * 20;
+    }
+    return pos;
+  }, []);
+
+  useFrame((state) => {
+    if (!pointsRef.current) return;
+    pointsRef.current.rotation.y += 0.001;
+    pointsRef.current.rotation.x += 0.0005;
+
+    // Subtle parallax with mouse
+    pointsRef.current.position.x = THREE.MathUtils.lerp(pointsRef.current.position.x, mouse.x * 0.5, 0.05);
+    pointsRef.current.position.y = THREE.MathUtils.lerp(pointsRef.current.position.y, mouse.y * 0.5, 0.05);
+  });
+
+  return (
+    <Points ref={pointsRef} positions={positions} stride={3}>
+      <PointMaterial
+        transparent
+        color={color}
+        size={0.04}
+        sizeAttenuation={true}
+        depthWrite={false}
+        opacity={0.3}
+        blending={THREE.AdditiveBlending}
+      />
+    </Points>
+  );
+};
 
 const InteractiveBackground: React.FC<{ activeSection: Section }> = ({ activeSection }) => {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -35,7 +75,9 @@ const InteractiveBackground: React.FC<{ activeSection: Section }> = ({ activeSec
 
   return (
     <Group>
-      <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+      <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={0.5} />
+      
+      <ReactiveParticles color={currentColor} />
       
       {/* Primary Floating Object */}
       <Float speed={2} rotationIntensity={1} floatIntensity={2}>
@@ -66,8 +108,8 @@ const InteractiveBackground: React.FC<{ activeSection: Section }> = ({ activeSec
       <Grid 
         position={[0, -2, 0]} 
         infiniteGrid 
-        fadeDistance={30} 
-        fadeStrength={5} 
+        fadeDistance={40} 
+        fadeStrength={8} 
         cellSize={1} 
         sectionSize={5}
         sectionThickness={1.5}
@@ -88,18 +130,18 @@ interface SceneProps {
 const Scene: React.FC<SceneProps> = ({ activeSection }) => {
   return (
     <Canvas className="w-full h-full bg-[#050505]" shadows dpr={[1, 2]}>
-      <PerspectiveCamera makeDefault position={[0, 0, 5]} fov={50} />
+      <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={45} />
       <OrbitControls 
         enablePan={false} 
         enableZoom={false} 
-        maxPolarAngle={Math.PI / 2} 
-        minPolarAngle={Math.PI / 3} 
+        maxPolarAngle={Math.PI / 1.8} 
+        minPolarAngle={Math.PI / 2.2} 
       />
       
       <InteractiveBackground activeSection={activeSection} />
       
       {/* Dynamic Fog */}
-      <Fog attach="fog" args={['#050505', 5, 15]} />
+      <Fog attach="fog" args={['#050505', 10, 25]} />
     </Canvas>
   );
 };
