@@ -88,7 +88,7 @@ const App: React.FC = () => {
             <a href="https://www.linkedin.com/in/phone-myat" target="_blank" className="hover:text-emerald-400">LI</a>
             <a href="https://github.com/Vera93203" target="_blank" className="hover:text-emerald-400">GH</a>
           </div>
-          <p className="text-[10px] text-zinc-700 font-medium">© 2024 Phone Myat Min. All Rights Reserved.</p>
+          <p className="text-[10px] text-zinc-700 font-medium">© 2026 Phone Myat Min. All Rights Reserved.</p>
         </div>
       </div>
       

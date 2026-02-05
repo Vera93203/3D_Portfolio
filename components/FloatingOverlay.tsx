@@ -86,9 +86,21 @@ const FloatingOverlay: React.FC = () => {
           <div className="glass-card w-full max-w-4xl p-8 md:p-12">
             <h2 className="text-4xl font-bold mb-8">About Me</h2>
             <div className="flex flex-col md:flex-row gap-12 mb-12">
-              <div className="w-full md:w-1/3 aspect-square glass-card overflow-hidden border-emerald-400/20 p-2">
-                 <img src="https://picsum.photos/id/64/400/400" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 rounded-xl" />
-              </div>
+              <div className="w-full md:w-1/3 glass-card overflow-hidden border-emerald-400/20 p-2 flex justify-center">
+                  <img
+                    src="images/cv.PNG"
+                    className="
+                      w-full max-w-[280px]
+                      md:max-w-[360px]
+                      lg:max-w-[420px]
+                      h-auto
+                      object-cover
+                      transition-all duration-700
+                      rounded-xl
+                    "
+                  />
+                </div>
+
               <div className="w-full md:w-2/3">
                 <p className="text-zinc-300 text-lg leading-relaxed mb-6">
                   I'm a Full-Stack Web developer, Machine Learning engineer, and 3D artist. 
@@ -104,7 +116,7 @@ const FloatingOverlay: React.FC = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="glass-card p-8 text-center bg-white/[0.02]">
-                <div className="text-5xl font-bold text-emerald-400 mb-2">30+</div>
+                <div className="text-5xl font-bold text-emerald-400 mb-2">20+</div>
                 <div className="text-xs uppercase text-zinc-500 tracking-widest font-bold">Happy Clients</div>
               </div>
               <div className="glass-card p-8 text-center bg-white/[0.02]">
@@ -112,7 +124,7 @@ const FloatingOverlay: React.FC = () => {
                 <div className="text-xs uppercase text-zinc-500 tracking-widest font-bold">Years Experience</div>
               </div>
               <div className="glass-card p-8 text-center bg-white/[0.02]">
-                <div className="text-5xl font-bold text-emerald-400 mb-2">50+</div>
+                <div className="text-5xl font-bold text-emerald-400 mb-2">10+</div>
                 <div className="text-xs uppercase text-zinc-500 tracking-widest font-bold">Projects Done</div>
               </div>
             </div>
