@@ -64,8 +64,8 @@ const FloatingOverlay: React.FC = () => {
 
               <div className="w-full md:w-2/3">
                 <p className="text-zinc-300 text-lg leading-relaxed mb-6">
-                  I'm a Full-Stack Web developer, Machine Learning engineer, and 3D artist. 
-                  With experience in HTML, CSS, JavaScript, React, Python, and Java, 
+                  I'm a Full-Stack Web developer, Ai engineer, and 3D artist. 
+                  With experience in HTML, CSS, JavaScript, React, Python
                   I build dynamic websites and explore data-driven solutions.
                 </p>
                 <p className="text-zinc-300 text-lg leading-relaxed">
