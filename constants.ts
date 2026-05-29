@@ -2,38 +2,64 @@
 import { Project, Experience, Education, Tool } from './types';
 
 export const PROJECTS: Project[] = [
-  {
-    title: "Isometric House",
-    tags: ["Illustrations", "3D Render"],
-    description: "Isometric House is a stunning visual project blending illustration and 3D rendering techniques. This creative piece showcases a detailed isometric view of a modern house, highlighting architectural features with precision.",
-    image: "https://picsum.photos/id/1/800/800"
+ {
+    title: "SaaS Dashboard",
+    tags: ["React", "Analytics", "Chart.js", "Tailwind CSS"],
+    description: "An enterprise-ready administrative workspace displaying interactive business intelligence dashboards, real-time telemetry, and user management features.",
+    image: "/images/saasdashboard.png",
+    link: "https://saas-dashboard-507307610839.europe-west2.run.app/"
+    
   },
   {
-    title: "Dashboard Template",
-    tags: ["UI Design", "Figma"],
-    description: "A sleek and functional UI design created for modern web and mobile applications. Focused on intuitive navigation and efficient data visualization.",
-    image: "https://picsum.photos/id/2/800/800"
+    title: "Real-time Collaboration Workspace",
+    tags: ["WebSockets", "Collaboration", "React", "Live Sync"],
+    description: "An interactive, real-time multi-user canvas with instant document synchronization, active user list, state persistence, and communication boards.",
+    image: "/images/realtime.png",
+    link: "https://real-time-collaboration-workspace-507307610839.europe-west2.run.app"
+  },
+  {
+    title: "Rest API Studio Docs",
+    tags: ["API Design", "Developer Tools", "Markdown"],
+    description: "An interactive design and simulation sandbox for building, analyzing, and documenting RESTful APIs with elegant mock response visualizations.",
+    image: "/images/restapistudiodocs.png",
+    link: "https://rest-api-studio-docs-507307610839.europe-west2.run.app"
+  },
+  {
+    title: "Full-stack E-commerce Platform",
+    tags: ["Ecommerce", "Payment Gateways", "Next.js", "Tailwind CSS"],
+    description: "Comprehensive storefront backend and front-end hub including dynamic shopping baskets, stripe checkouts, and database inventory tracking.",
+    image: "/images/ecommerce.png",
+    link: "https://full-stack-e-commerce-platform-507307610839.europe-west2.run.app"
+  },
+  {
+    title: "Envault Sandbox",
+    tags: ["Security", "Cryptography", "Identity", "React"],
+    description: "A client-side cryptographic playground and sandbox environment validating advanced authentication mechanisms and key derivations safely.",
+    image: "/images/envault.png",
+    link: "https://envault-sandbox-507307610839.europe-west2.run.app"
+  },
+   {
+    title: "Forge UI Studio",
+    tags: ["Design System", "CSS Engine", "Component Staging"],
+    description: "An advanced workspace for developing customized design tokens, responsive Tailwind templates, and complex UI layouts live.",
+    image: "/images/forgeui.png",
+    link: "https://forge-ui-studio-507307610839.europe-west2.run.app"
+  },
+  {
+    title: "Analytics Monitoring Dashboard",
+    tags: ["D3.js", "Telemetry", "Server Diagnostics", "React"],
+    description: "High-throughput server performance and telemetry dashboard visualization tool measuring core processing latency and network bandwidth.",
+    image: "/images/analyse.png",
+    link: "https://analytics-monitoring-dashboard-507307610839.europe-west2.run.app"
   },
   {
     title: "ZayyChinnTaung",
     tags: ["E-Commerce", "Web Dev"],
     description: "A Myanmar-based traditional gift shop web application missioned to preserve and promote Myanmar's rich cultural heritage.",
-    image: "https://picsum.photos/id/3/800/800",
+    image: "/images/zaychintaung.png",
     link: "https://vera93203.github.io/ZayChinTaung/index.html"
   },
-  {
-    title: "Weatherwise",
-    tags: ["Machine Learning", "Data Analysis"],
-    description: "Machine Learning Model Web Application for flight ticket fare prediction based on Weather Condition and location data.",
-    image: "https://picsum.photos/id/4/800/800"
-  },
-  {
-    title: "AsianNoodle",
-    tags: ["Web Dev", "Menu Design"],
-    description: "Authentic Myanmar noodle shop web presence. Modern flipbook menu and responsive design for a London-based business.",
-    image: "https://picsum.photos/id/5/800/800",
-    link: "https://asiannoodles.co.uk/"
-  }
+  
 ];
 
 export const EXPERIENCES: Experience[] = [
