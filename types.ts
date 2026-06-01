@@ -7,6 +7,7 @@ export interface Project {
   description: string;
   image: string;
   link?: string;
+  githubLink?: string;
 }
 
 export interface Experience {

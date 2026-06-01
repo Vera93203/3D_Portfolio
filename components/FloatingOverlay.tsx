@@ -11,13 +11,13 @@ const FloatingOverlay: React.FC = () => {
           <div className="max-w-2xl">
             <div className="flex items-center gap-2 mb-4 text-emerald-400 font-medium tracking-widest uppercase text-xs">
               <span className="w-8 h-[1px] bg-emerald-400"></span>
-              <span>Full Stack Developer & AI Engineer</span>
+              <span>Full Stack Developer</span>
             </div>
             <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
               I'm Phone <span className="text-zinc-500">Myat Min</span>
             </h1>
             <p className="text-zinc-400 text-lg mb-10 max-w-lg leading-relaxed">
-              Turning complex problems into elegant 3D experiences and data-driven solutions. Based in London, UK.
+              Full Stack Developer with 3 years of commercial experience—React, TypeScript, and Node.js end to end. Based in London, UK.
             </p>
             <div className="flex gap-4">
               <button 
@@ -64,13 +64,10 @@ const FloatingOverlay: React.FC = () => {
 
               <div className="w-full md:w-2/3">
                 <p className="text-zinc-300 text-lg leading-relaxed mb-6">
-                  I'm a Full-Stack Web developer, Ai engineer, and 3D artist. 
-                  With experience in HTML, CSS, JavaScript, React, Python.
-                  I build dynamic websites and explore data-driven solutions.
+                  I'm a Full Stack Developer with 3 years of commercial experience. I build with React, TypeScript, and Node.js—end to end, from database schema to deployed UI—across SaaS, edtech, and manufacturing.
                 </p>
                 <p className="text-zinc-300 text-lg leading-relaxed">
-                  I also enjoy creating 3D models using Blender, blending technical skills with creative design. 
-                  Constantly evolving, I strive to bring ideas to life through code and innovation.
+                  I've shipped features used by thousands of people, built component libraries adopted across teams, and delivered measurable impact: 40% faster dev cycles, 50% fewer production bugs, and Lighthouse scores in the 90s. I graduated with First Class Honours in 2025.
                 </p>
                     <div className="flex justify-center">
   <a
@@ -142,15 +139,29 @@ const FloatingOverlay: React.FC = () => {
                     </div>
                     <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
                     <p className="text-sm text-zinc-400 line-clamp-3 mb-6 leading-relaxed">{project.description}</p>
-                    {project.link && (
-                      <a 
-                        href={project.link} 
-                        target="_blank" 
-                        rel="noreferrer"
-                        className="liquid-glass-btn inline-flex items-center gap-3 px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest"
-                      >
-                        Explore Project <i className="fa-solid fa-arrow-right"></i>
-                      </a>
+                    {(project.link || project.githubLink) && (
+                      <div className="flex flex-wrap gap-3">
+                        {project.link && (
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="liquid-glass-btn inline-flex items-center gap-3 px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest"
+                          >
+                            Explore Project <i className="fa-solid fa-arrow-right"></i>
+                          </a>
+                        )}
+                        {project.githubLink && (
+                          <a
+                            href={project.githubLink}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="liquid-glass-btn inline-flex items-center gap-3 px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest"
+                          >
+                            GitHub <i className="fa-brands fa-github"></i>
+                          </a>
+                        )}
+                      </div>
                     )}
                   </div>
                 </div>
