@@ -5,7 +5,6 @@ import { OrbitControls, Float, Stars, MeshDistortMaterial, Sphere, PerspectiveCa
 import * as THREE from 'three';
 import { Section } from '../types';
 
-// Define intrinsic elements as components to bypass JSX type errors
 const Group = 'group' as any;
 const Mesh = 'mesh' as any;
 const OctahedronGeometry = 'octahedronGeometry' as any;
@@ -16,7 +15,7 @@ const Fog = 'fog' as any;
 const ReactiveParticles: React.FC<{ color: string }> = ({ color }) => {
   const pointsRef = useRef<THREE.Points>(null);
   const { mouse } = useThree();
-  
+
   const particleCount = 2000;
   const positions = useMemo(() => {
     const pos = new Float32Array(particleCount * 3);
@@ -28,12 +27,11 @@ const ReactiveParticles: React.FC<{ color: string }> = ({ color }) => {
     return pos;
   }, []);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (!pointsRef.current) return;
     pointsRef.current.rotation.y += 0.001;
     pointsRef.current.rotation.x += 0.0005;
 
-    // Subtle parallax with mouse
     pointsRef.current.position.x = THREE.MathUtils.lerp(pointsRef.current.position.x, mouse.x * 0.5, 0.05);
     pointsRef.current.position.y = THREE.MathUtils.lerp(pointsRef.current.position.y, mouse.y * 0.5, 0.05);
   });
@@ -55,18 +53,18 @@ const ReactiveParticles: React.FC<{ color: string }> = ({ color }) => {
 
 const InteractiveBackground: React.FC<{ activeSection: Section }> = ({ activeSection }) => {
   const meshRef = useRef<THREE.Mesh>(null);
-  
+
   const colors = useMemo(() => ({
-    home: "#10b981",
-    portfolio: "#3b82f6",
-    about: "#a855f7",
-    resume: "#eab308",
-    contact: "#ef4444"
+    home: '#10b981',
+    portfolio: '#3b82f6',
+    about: '#a855f7',
+    resume: '#eab308',
+    contact: '#ef4444',
   }), []);
 
-  const currentColor = colors[activeSection] || "#ffffff";
+  const currentColor = colors[activeSection] || '#ffffff';
 
-  useFrame((state) => {
+  useFrame(() => {
     if (meshRef.current) {
       meshRef.current.rotation.x += 0.005;
       meshRef.current.rotation.y += 0.005;
@@ -76,10 +74,9 @@ const InteractiveBackground: React.FC<{ activeSection: Section }> = ({ activeSec
   return (
     <Group>
       <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={0.5} />
-      
+
       <ReactiveParticles color={currentColor} />
-      
-      {/* Primary Floating Object */}
+
       <Float speed={2} rotationIntensity={1} floatIntensity={2}>
         <Mesh ref={meshRef} position={[2, 0, -2]}>
           <OctahedronGeometry args={[1.5, 0]} />
@@ -96,26 +93,25 @@ const InteractiveBackground: React.FC<{ activeSection: Section }> = ({ activeSec
         </Mesh>
       </Float>
 
-      {/* Atmospheric Spheres */}
       <Sphere args={[1, 16, 16]} position={[-3, 2, -5]}>
         <MeshDistortMaterial color="#ffffff" speed={1} distort={0.2} wireframe />
       </Sphere>
-      
+
       <Sphere args={[0.5, 16, 16]} position={[4, -2, -3]}>
         <MeshDistortMaterial color={currentColor} speed={3} distort={0.5} wireframe opacity={0.2} transparent />
       </Sphere>
 
-      <Grid 
-        position={[0, -2, 0]} 
-        infiniteGrid 
-        fadeDistance={40} 
-        fadeStrength={8} 
-        cellSize={1} 
+      <Grid
+        position={[0, -2, 0]}
+        infiniteGrid
+        fadeDistance={40}
+        fadeStrength={8}
+        cellSize={1}
         sectionSize={5}
         sectionThickness={1.5}
         sectionColor={currentColor}
       />
-      
+
       <AmbientLight intensity={0.5} />
       <PointLight position={[10, 10, 10]} intensity={1.5} color={currentColor} />
       <Environment preset="city" />
@@ -131,16 +127,15 @@ const Scene: React.FC<SceneProps> = ({ activeSection }) => {
   return (
     <Canvas className="w-full h-full bg-[#050505]" shadows dpr={[1, 2]}>
       <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={45} />
-      <OrbitControls 
-        enablePan={false} 
-        enableZoom={false} 
-        maxPolarAngle={Math.PI / 1.8} 
-        minPolarAngle={Math.PI / 2.2} 
+      <OrbitControls
+        enablePan={false}
+        enableZoom={false}
+        maxPolarAngle={Math.PI / 1.8}
+        minPolarAngle={Math.PI / 2.2}
       />
-      
+
       <InteractiveBackground activeSection={activeSection} />
-      
-      {/* Dynamic Fog */}
+
       <Fog attach="fog" args={['#050505', 10, 25]} />
     </Canvas>
   );

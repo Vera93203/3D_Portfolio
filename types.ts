@@ -3,11 +3,14 @@ export type Section = 'home' | 'portfolio' | 'about' | 'resume' | 'contact';
 
 export interface Project {
   title: string;
+  slug: string;
   tags: string[];
   description: string;
   image: string;
   link?: string;
   githubLink?: string;
+  metrics?: string[];
+  accentColor?: string;
 }
 
 export interface Experience {

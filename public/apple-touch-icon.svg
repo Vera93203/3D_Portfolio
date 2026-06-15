@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none">
+  <defs>
+    <linearGradient id="accent" x1="24" y1="24" x2="156" y2="156" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34d399"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="90" y1="12" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="bgGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(90 90) rotate(90) scale(90)">
+      <stop stop-color="#10b981" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#050505" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="180" height="180" rx="40" fill="#050505"/>
+  <rect width="180" height="180" rx="40" fill="url(#bgGlow)"/>
+  <rect x="4" y="4" width="172" height="172" rx="36" stroke="url(#accent)" stroke-opacity="0.3" stroke-width="2"/>
+  <rect x="12" y="12" width="156" height="78" rx="39" fill="url(#shine)"/>
+  <text
+    x="90"
+    y="128"
+    text-anchor="middle"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-weight="800"
+    font-size="96"
+    fill="url(#accent)"
+  >P</text>
+</svg>

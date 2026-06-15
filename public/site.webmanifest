@@ -1,0 +1,23 @@
+{
+  "name": "Phone Myat Min — Full Stack Developer",
+  "short_name": "PMM Portfolio",
+  "description": "3D portfolio showcasing full-stack projects built with React, TypeScript, and Node.js.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
